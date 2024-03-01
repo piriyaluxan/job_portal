@@ -1,3 +1,3 @@
 # job_portal
 
-this is a wep application for finding jobs
+this is a web application for finding jobs
