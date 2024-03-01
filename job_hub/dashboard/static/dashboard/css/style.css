@@ -1,0 +1,16 @@
+body {
+    background-image: url('../images/blue.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(1px);
+    color: rgb(113, 41, 41);
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    /* color: pink; */
+    /* Setting text color to pink */
+
+}
+ .custom-bg-darkblue {
+            background-color: #003366; /* Dark blue color */
+        }

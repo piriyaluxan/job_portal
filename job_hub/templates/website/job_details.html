@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+
+<section>
+   <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+         <h2 class="display-5 fw-bold">{{job.title}}</h2>
+         <center>
+         <p class="col-md-8 fs-5 mt-3">
+            {{job.state}} | Remote | Rs. {{job.salary|intcomma}}
+         </p>
+      </center>
+         {% if has_applied == False %}
+         <a href="{% url 'apply-to-job' job.pk %}" class="btn btn-primary btn-lg">Apply Now</a>
+         {% else %}
+         <p><span class="text-danger">You have already applied for this job</span></p>
+         {% endif %}
+      </div>
+   </div>
+</section>
+
+<div>
+   <section>
+      <h5>Job Requirements</h5>
+      <p>
+        {{job.requirements}}
+      </p>
+   </section>
+</div> <br>
+
+<div>
+   <section>
+      <h5>Ideal Candidate</h5>
+      <p>
+        {{job.ideal_candidate}}
+      </p>
+   </section>
+</div> <br>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+   <div class="col">
+      <div class="card h-100">
+         <div div class="card-body">
+            <h5 class="card-tit1e">Other Details</h5>
+            <p class="card-text">there are some other details
+               about the company etc etc</p>
+         </div>
+         <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+         </div>
+      </div>
+   </div>
+
+   <div class="col">
+      <div class="card h-100">
+         <div div class="card-body">
+            <h5 class="card-tit1e">About the company</h5>
+            <p class="card-text">{{job.company.name}}</p>
+            <p class="card-text">{{job.company.city}}, {{job.comany.state}}</p>
+            <p class="card-text">{{job.company.est_date}}</p>
+         </div>
+         <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+         </div>
+      </div>
+   </div>
+
+   <div class="col">
+      <div class="card h-100">
+         <div div class="card-body">
+            <h5 class="card-tit1e">Related Jobs</h5>
+            <p class="card-text">there are some other details
+               about the job etc etc</p>
+         </div>
+         <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+         </div>
+      </div>
+   </div>
+
+</div><br>
+
+{% endblock content %}

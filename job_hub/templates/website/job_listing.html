@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+<center>
+<section>
+   <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+         <h2 class="display-5 fw-bold">Job hub!!!... Get Hired Quickly!</h2>
+            <p class="co1-md-8 fs-3 mt-3 display-7" >
+               All Available Jobs
+            </p>   
+      </div>
+   </div>
+</section>
+</center>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+   {% if jobs %}
+   {% for job in jobs %}
+   <div class="col">
+   <div class="card h-100">
+      <div class="card-body">
+         <h5 class="card-title" style="color: red;">{{ job.title }}</h5>
+         <p class="card-text">Job Location: {{job.city}}</p>
+         <p class="card-text">salary:{{job.salary|intcomma}}</p>
+         <p class="card-text">Posted By: {{job.company}}</p>
+         <a class="btn btn-primary btn-sm" href="{% url 'job-details' job.pk %}">View Details</a>
+      </div>
+         
+         <div class="card-footer">
+            <small class="text-muted">Created {{job.timestamp|naturaltime}}</small>
+         </div>
+
+      </div>
+   </div>
+   {% endfor %}
+   {% endif %}
+</div>
+<br>
+{% endblock content %}

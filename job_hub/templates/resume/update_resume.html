@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<style>
+    /* Custom CSS for form styling */
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        color: #333;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .form-label {
+        color: #555;
+        font-weight: bold;
+        display: inline-block;
+        width: 120px; /* Adjust the width as needed */
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+</style>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-body">
+                <h5 class="card-title mb-4 text-center">Create A Resume</h5>
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">First Name:</label>
+                        {% render_field form.firstname class="form-control" %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Surname:</label>
+                        {% render_field form.surname class="form-control" %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Location:</label>
+                        {% render_field form.location class="form-control" %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Job title:</label>
+                        {% render_field form.job_title class="form-control" %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Upload Resume:</label>
+                        {% render_field form.upload_resume class="form-control" %}
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

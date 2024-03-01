@@ -1,0 +1,13 @@
+body {
+    background-image: url('../images/backq.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(2px);
+    color: white;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    /* color: pink; */
+    /* Setting text color to pink */
+
+}

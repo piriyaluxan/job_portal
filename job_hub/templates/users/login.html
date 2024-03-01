@@ -1,0 +1,68 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+
+<style>
+/* CSS styles for the form */
+.form-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    {% comment %} background-color: rgba(255, 255, 255, 0.5); /* Set background color with opacity */ {% endcomment %}
+}
+
+.bg-light {
+    background-color: rgba(255, 255, 255, 0.5); /* Set background color with opacity */
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.text-muted a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.text-muted a:hover {
+    text-decoration: underline;
+}
+</style>
+
+<div class="form-container">
+    <form class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
+        {% csrf_token %}
+        <div class="">
+            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Email address">
+            {% comment %} <label for="floatingInput">Email address</label> {% endcomment %}
+        </div>
+        <div class="">
+            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+            {% comment %} <label for="floatingPassword">Password</label> {% endcomment %}
+        </div>
+        <button class="btn btn-lg btn-primary" type="submit">Sign In</button>
+        <hr class="my-4">
+        <small class="text-muted">Register as Applicant <a href="{% url 'register-applicant' %}">Sign Up</a></small><br>
+        <small class="text-muted">Register as Recruiter <a href="{% url 'register-recruiter' %}">Sign Up</a></small>
+    </form>
+</div>
+{% endblock content %}
